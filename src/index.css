@@ -1,3 +1,455 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/**
+Criar variavel para cores do projeto que se aplica em varios lugares..
+*/
 :root {
-  --collor-reed: #ff0000;
+    --pc-color-bg-primary: #e8e8e8;
+    --pc-color-bg-secondary: #ffe500;
+    --pc-color-bg-tertiary: #636363;
+    --pc-color-bg-quaternary: #0caf1d;
+
+    --pc-color-card-bg: #fff;
+    --pc-color-card-border: #d9d9d9;
+
+    --pc-color-btn-primary: #3483fa;
+    --pc-color-btn-inverse: #fff;
+
+    --pc-color-font-primary: #636363;
+    --pc-color-font-secondary: #0caf1d;
+    --pc-color-font-tertiary: #fff;
+    --pc-color-font-placeholder: #d9d9d9;
+
+    --pc-color-error: #f33;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/* generic style */
+.pc-container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.pc-mb20 {
+    margin-bottom: 20px;
+}
+
+.pc-mt20 {
+    margin-top: 20px;
+}
+
+.pc-line-bottom {
+    border-bottom: 2px solid var(--pc-color-card-border);
+}
+
+.pc-section-title {
+    text-align: center;
+    color: var(--pc-color-font-primary);
+    font-size: 16px;
+}
+
+.pc-text-left {
+    text-align: left;
+}
+
+@media(min-width: 576px) {
+    .pc-section-title {
+        text-align: left;
+        font-size: 24px;
+    }
+}
+
+/*
+Todo o tamanho caixa fica com border-box
+As margens interna (padding) e externa (margin) são zerado
+*/
+
+/*-------------------------------------------------------------------------------------------*/
+/* header style */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'open sans';
+}
+
+a, a:houver {
+    text-decoration: none;
+    color: unset;
+}
+
+html, body { 
+    background-color: var(--pc-color-bg-primary);
+}
+
+main {
+    padding: 0 20px;
+}
+
+header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.pc-header-client {
+    background-color: var(--pc-color-bg-secondary);
+    color: var(--pc-color-bg-tertiary);
+}
+
+.pc-header-admin {
+    background-color: var(--pc-color-bg-quaternary);
+    color: var(--pc-color-btn-inverse);
+}
+
+nav {
+    display: flex;
+    justify-content:space-between ;
+    align-items: center;
+}
+
+nav h1 {
+    font-size: 16px;
+}
+
+.pc-navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.pc-menu-items-container {
+    display: flex;
+}
+
+.pc-menu-items-container img {
+    width: 20px;
+    height: 20px;
+}
+
+.pc-menu-item {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.pc-menu-item p {
+    display: none;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.pc-logged-user {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.pc-menu-item-active {
+    font-weight: 700;
+}
+
+.pc-logged-user p {
+    font-size: 12px;
+    text-align: right;
+}
+
+nav h1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+@media (min-width: 576px) {
+    nav h1 {
+        font-size: 24px;
+    }
+
+    .pc-menu-item p {
+        display: unset;
+    }
+}
+
+@media (min-width: 320px) {
+    .pc-menu-items-container {
+        padding-left: 20px;
+    }
+}
+/*-------------------------------------------------------------------------------------------*/
+/* card style */
+.pc-card {
+    background-color: var(--pc-color-card-bg);
+    border-radius: 4px;
+    border: 2px solid var(--pc-color-card-border);
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/* button style */
+.pc-btn-page-container {
+    width: 100%;
+    display: grid;
+    grid-gap: 20px;
+    padding: 0 20px 20px 0;
+}
+
+@media (min-width: 576px) {
+    .pc-btn-page-container {
+        width: 220px;
+    }
+}
+
+.pc-btn {
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    width: 100%;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pc-btn-blue {
+    border: none;
+    background-color: var(--pc-color-btn-primary);
+    color: var(--pc-color-btn-inverse);
+}
+
+.pc-btn-white {
+    background-color: var(--pc-color-btn-inverse);
+    color: var(--pc-color-btn-primary);
+    border: 2px solid var(--pc-color-btn-primary);
+}
+
+.pc-btn-next-page {
+    border: 2px solid var(--pc-color-btn-primary);
+    padding: 10px;
+    border-radius: 4px;
+    color: var(--pc-color-btn-primary);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/* search bar style */
+.pc-search-bar {
+    height: 40px;
+    display: flex;
+    color: var(--pc-color-font-primary);
+}
+
+.pc-search-bar button, .pc-search-bar input {
+    border: 2px solid var(--pc-color-card-border);
+}
+
+.pc-search-bar button[type="submit"] {
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+}
+
+.pc-search-bar button {
+    color: var(--pc-color-font-primary);
+}
+
+.pc-search-bar button[type="reset"] {
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+}
+
+.pc-search-bar input {
+   /* width: calc(100% - 80%);*/
+   width: 100%;
+    border-right: none;
+    border-left: none;
+    padding: 0 10px;
+    font-size: 16px;
+    color: var(--pc-color-font-primary);
+}
+
+.pc-search-bar input:focus {
+    outline: none;
+}
+
+.pc-search-bar input::placeholder {
+    color: var(--pc-color-font-placeholder);
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/* forms style */
+
+.pc-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.pc-form h2 {
+    font-size: 16px;
+    color: var(--pc-color-font-primary);
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.pc-form-control-container {
+    width: 100%;
+    display: grid;
+    grid-gap: 20px;
+    margin: 20px 0;
+}
+
+.pc-form-control {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    padding: 0 20px;
+    color: var(--pc-color-font-primary);
+    border-radius: 4px;
+    border: 2px solid var(--pc-color-card-border);
+}
+
+.pc-form-control:focus {
+    outline: none;
+}
+
+.pc-form-control::placeholder {
+    color: var(--pc-color-font-placeholder);
+}
+
+
+.pc-input-error {
+    border:2px solid var(--pc-color-error);
+}
+
+.pc-form-error {
+    color: var(--pc-color-error);
+    font-size: 12px;
+    padding-left: 4px;
+}
+
+.ps-select {
+    color: var(--pc-color-font-placeholder);
+}
+
+.ps-select option[disabled] {
+    display: none;
+}
+
+.ps-select option {
+    color: var(--pc-color-font-primary);
+}
+
+.pc-textarea {
+    resize: none;
+    height: 128px;
+    padding-top: 10px;
+}
+
+@media (min-width: 576px) {
+    .pc-form h2 {
+        font-size: 24px;
+    }
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/* table style */
+
+.pc-table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse
+}
+
+.pc-table thead {
+    height: 55px;
+    color: var(--pc-color-font-primary);
+    background-color: var(--pc-color-card-bg);
+}
+
+.pc-table tbody {
+    text-align: center;
+    font-size: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--pc-color-font-primary);
+    background-color: var(--pc-color-card-bg);
+}
+
+.pc-table tbody tr{
+    height: 70px;
+    border: 1px solid var(--pc-color-card-border);
+}
+
+.pc-table th:nth-child(2) {
+    border-top-left-radius: 10px;
+}
+
+.pc-table th:nth-last-child() {
+    border-top-right-radius: 10px;
+}
+
+.pc-table td:nth-child(2) {
+    padding-left: 10px;
+}
+
+.pc-table td:nth-last-child() {
+    padding-right: 5px;
+}
+
+.pc-tb576 {
+    display: none; /*Por padrão nao exibe  valor na tela*/
+}
+
+.pc-tb768 {
+    display: none; /*Por padrão nao exibe  valor na tela*/
+}
+
+@media(min-width: 576px) {
+    .pc-tb576 {
+        display: table-cell; /*Indica para ser mostrado o valor na tela*/
+    }
+
+    .pc-table td:nth-child(1) {
+        padding-left: 20px;
+    }
+
+    .pc-table th:nth-child(2) {
+        border-top-left-radius: 0;
+    }
+    
+    .pc-table th:nth-child(1) {
+        padding-left: 20px;
+        border-top-left-radius: 10px;
+    }
+
+    .pc-table td:nth-child(2) {
+        padding-left: 0;
+    }
+}
+
+@media(min-width: 768px) {
+    .pc-tb768 {
+        display: table-cell; /*Indica para ser mostrado o valor na tela*/
+    }
+}
+
+@media(min-width: 992px) {
+    .pc-table tbody {
+        font-size: 16px;
+    }
+}
+
+@media(min-width: 320px) {
+    .pc-text-left {
+        font-size: 11px;
+        padding-left: 5px;
+    }
 }
